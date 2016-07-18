@@ -58,6 +58,7 @@ router.post('/posts', function (req, res, then) {
     });
 });
 
+// In the future this should be .patch because it doesn't force updating all fields http://restful-api-design.readthedocs.io/en/latest/methods.html
 router.put('/posts/:id', function (req, res, next) {
   let updatedPost = {
     title: req.body.title,
@@ -76,8 +77,18 @@ router.put('/posts/:id', function (req, res, next) {
     });
 });
 
-router.delete('/posts/:id', function (req, res) {
-  res.send('DELETE a blog post');
+router.delete('/posts/:id', function (req, res, next) {
+  let postId = parseInt(req.params.id);
+  db.result('delete from posts where id = $1', postId)
+    .then(function (result) {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: `Deleted ${result.rowCount} post`
+        });
+    }).catch(function (err) {
+      return next(err);
+    });
 });
 
 
