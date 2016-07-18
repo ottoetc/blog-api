@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/ottoetc/blog-api#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "pg-promise": "^5.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"
