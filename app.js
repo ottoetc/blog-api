@@ -46,7 +46,7 @@ router.get('/posts/:id', function (req, res, next) {
 });
 
 router.post('/posts', function (req, res, then) {
-  db.query('insert into posts(title, content) values(${title}, ${content})', req.body)
+  db.none('insert into posts(title, content) values(${title}, ${content})', req.body)
     .then(function () {
       res.status(200)
         .json({
@@ -58,8 +58,22 @@ router.post('/posts', function (req, res, then) {
     });
 });
 
-router.put('/posts/:id', function (req, res) {
-  res.send('PUT update a blog post');
+router.put('/posts/:id', function (req, res, next) {
+  let updatedPost = {
+    title: req.body.title,
+    content: req.body.content,
+    id: parseInt(req.params.id)
+  };
+  db.none('update posts set title=${title}, content=${content} where id=${id}', updatedPost)
+    .then(function () {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: 'Put new data in a post'
+        });
+    }).catch(function (err) {
+      return next(err);
+    });
 });
 
 router.delete('/posts/:id', function (req, res) {
