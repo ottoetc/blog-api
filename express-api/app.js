@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const pgp = require('pg-promise')();
 const bodyParser = require('body-parser');
@@ -8,6 +9,7 @@ const db = pgp(connection);
 const port = process.env.PORT || 8080;
 const router = express.Router();
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api/v1/', router);
@@ -21,9 +23,7 @@ router.get('/posts', function (req, res, next) {
     .then(function (data) {
       res.status(200)
         .json({
-          status: 'success',
-          data: data,
-          message: 'Got all posts'
+          posts: data,
         });
     }).catch(function (err) {
       return next(err);
@@ -36,9 +36,7 @@ router.get('/posts/:id', function (req, res, next) {
     .then(function (data) {
       res.status(200)
         .json({
-          status: 'success',
-          data: data,
-          message: 'Got single post by id'
+          posts: data,
         });
     }).catch(function (err) {
       return next(err);
@@ -50,8 +48,6 @@ router.post('/posts', function (req, res, then) {
     .then(function () {
       res.status(200)
         .json({
-          status: 'success',
-          message: 'Posted a blog post'
         });
     }).catch(function (err) {
       return next(err);
@@ -63,14 +59,13 @@ router.put('/posts/:id', function (req, res, next) {
   let updatedPost = {
     title: req.body.title,
     content: req.body.content,
+    post_time: req.body.post_time,
     id: parseInt(req.params.id)
   };
   db.none('update posts set title=${title}, content=${content} where id=${id}', updatedPost)
     .then(function () {
       res.status(200)
         .json({
-          status: 'success',
-          message: 'Put new data in a post'
         });
     }).catch(function (err) {
       return next(err);
@@ -83,8 +78,6 @@ router.delete('/posts/:id', function (req, res, next) {
     .then(function (result) {
       res.status(200)
         .json({
-          status: 'success',
-          message: `Deleted ${result.rowCount} post`
         });
     }).catch(function (err) {
       return next(err);
