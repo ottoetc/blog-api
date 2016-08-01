@@ -5,6 +5,11 @@ export default Ember.Component.extend({
   actions: {
     toggleContent: function() {
       this.toggleProperty('contentShowing');
+    },
+    delete(post) {
+      if (confirm('Are you sure you want to delete this post?')) {
+        this.sendAction('deletePost', post);
+      }
     }
   }
 });
