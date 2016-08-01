@@ -1,7 +1,7 @@
 <h2>Posts</h2>
 
-{{#each model as |post|}}
-  <h4>{{post.title}}</h4>
-  <p>{{post.post_time}}</p>
-  <p>{{post.content}}</p>
-{{/each}}
+<ul>
+  {{#each model as |post|}}
+    {{post-detail post=post}}
+  {{/each}}
+</ul>

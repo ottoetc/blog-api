@@ -1,0 +1,5 @@
+<li {{action 'toggleContent'}}>{{post.title}} | {{post.post_time}}
+  {{#if contentShowing}}
+    <p>{{post.content}}</p>
+  {{/if}}
+</li>
