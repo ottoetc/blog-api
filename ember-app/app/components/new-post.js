@@ -12,6 +12,8 @@ export default Ember.Component.extend({
         title: this.get('title'),
         content: this.get('content'),
       };
+      this.set('title', '');
+      this.set('content', '');
       this.set('addNewPost', false);
       this.sendAction('save2', params);
     }
