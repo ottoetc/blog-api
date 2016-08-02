@@ -2,5 +2,6 @@
   {{#if contentShowing}}
     <p>{{post.content}}</p>
   {{/if}}
+  {{update-post post=post update="update"}}
   <button {{action 'delete' post}}>Delete</button>
 </li>
