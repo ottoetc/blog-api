@@ -4,15 +4,15 @@
       <form>
         <div class="form-group">
           <label for="title">Title</label>
-          {{input value=title id="title"}}
+          {{input value=title id="title" class="form-control"}}
         </div>
         <div class="form-group">
           <label for="content">Content</label>
-          {{textarea value=content id="content"}}
+          {{textarea value=content id="content" class="form-control"}}
         </div>
-        <button {{action 'save1'}}>Post</button>
+        <button class="btn btn-primary" {{action 'save1'}}>Post</button>
       </form>
     </div>
 {{else}}
-  <button {{action 'postFormShow'}}>New Post</button>
+  <button class="btn btn-primary" {{action 'postFormShow'}}>New Post</button>
 {{/if}}
