@@ -2,8 +2,8 @@
   <h3 {{action 'toggleContent'}}>{{post.title}}</h3>
   {{#if contentShowing}}
     <p>{{post.content}}</p>
-    {{update-post post=post update="update"}}
-    <button class="btn btn-danger" {{action 'delete' post}}>Delete</button>
+      {{update-post post=post update="update"}}
+      <button class="btn btn-danger" {{action 'delete' post}}>Delete</button>
   {{/if}}
 
 </div>

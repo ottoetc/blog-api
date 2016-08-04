@@ -1,15 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h2>Posts</h2>
-
-      {{new-post save2="save3"}}
-
-
-        {{#each model as |post|}}
-          {{post-detail post=post update="update" deletePost="deletePost"}}
-        {{/each}}
-
-    </div>
+    <h2>Posts</h2>
+    {{new-post save2="save3"}}
   </div>
+  <div class="row">
+  {{#each model as |post|}}
+    {{post-detail post=post update="update" deletePost="deletePost"}}
+  {{/each}}
+  </div>
+
 </div>
