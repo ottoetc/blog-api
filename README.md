@@ -8,14 +8,6 @@
 
 This repo contains two separate programs. A Node backend built with Express and PostgreSQL that provides a RESTful blog API. And a front end blogging web application built with the Ember.js framework.
 
-## Todo
-* Add date and time to each blog post.
-* Add sorting by post date.
-* Implement testing.
-* Implement Users and user auth.
-* Add markdown support to blog app.
-* Make the Express backend strictly conform with the JSON API standard.
-
 ## Setup/Installation Requirements
 
 * Both apps require Node/npm to run. PostgreSQL is required for the backend. Bower is required to build the front end (`npm install -g bower`)
@@ -24,6 +16,14 @@ This repo contains two separate programs. A Node backend built with Express and 
 * To install dependencies and start serving the backend api run `cd express-api && npm install && npm start`
 * In a separate terminal in the project root start the Ember app with: `cd ember-app && npm install && bower install && ember server`
 * The ember app should now be available in the browser at _localhost:4200_
+
+## Possible Future Features
+* Add date and time to each blog post.
+* Add sorting by post date.
+* Implement testing.
+* Implement Users and user auth.
+* Add markdown support to blog app.
+* Make the Express backend strictly conform with the JSON API standard.
 
 ## License
 
