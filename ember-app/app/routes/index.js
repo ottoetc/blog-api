@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   model() {
     return this.get('store').findAll('post');
   },
-
+  // CRUD functions that trigger calls to the API
   actions: {
     save3(params) {
       console.log("SAVE Params: ", params);

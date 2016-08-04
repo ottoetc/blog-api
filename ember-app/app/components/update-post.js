@@ -10,7 +10,6 @@ export default Ember.Component.extend({
       var params = {
         title: this.get('title'),
         content: this.get('content'),
-        // id: this.get('id'),
       };
       this.set('updatePostForm', false);
       this.sendAction('update', post, params);
