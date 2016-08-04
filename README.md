@@ -8,9 +8,13 @@
 
 This repo contains two separate programs. A Node backend built with Express and PostgreSQL that provides a RESTful blog API. And a front end blogging web application built with the Ember.js framework.
 
-## Future Features
-
-
+## Todo
+* Add date and time to each blog post.
+* Add sorting by post date.
+* Implement testing.
+* Implement Users and user auth.
+* Add markdown support to blog app.
+* Make the Express backend strictly conform with the JSON API standard.
 
 ## Setup/Installation Requirements
 
